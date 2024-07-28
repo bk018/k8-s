@@ -8,7 +8,7 @@ metadata:
 spec:
   containers:
     - name: myjenkins
-      image: jenkins
+      image: jenkins/jenkins:lts
       ports:
         - containerPort: 8080
           hostPort: 8080
