@@ -7,7 +7,7 @@ metadata:
 spec:
   containers:
     - name: webserver
-      image: <Image>
+      image: ngnix
       resources:
         limits:
           memory: "128Mi"
