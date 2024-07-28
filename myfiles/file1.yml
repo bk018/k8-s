@@ -1,10 +1,11 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: webserver2
+  name: nginx-pod
   labels:
-    name: webserver2
+    author: intellqit
+    type: reverse-proxy
 spec:
   containers:
-    - name: webserver
-      image: ngnix
+    - name: appserver
+      image: nginx
