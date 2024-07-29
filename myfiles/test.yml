@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: deployment
+metadata:
+  name: webserver
+  labels:
+    type: webserver
+    author: bharath
+spec:
+  replicas: 2
+  selector:
+    matchlabels:
+      type: webserver
+  template:
+    metadata:
+      name: webserver
+      labels:
+        name: webserver
+        author: bharath
+  spec:
+    containers:
+      - image: nginx
+        name: webserver
+        ports:
+          -containerport: 80
+          hostport: 8080
