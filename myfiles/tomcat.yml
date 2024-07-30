@@ -1,0 +1,15 @@
+piVersion: v1
+kind: Pod
+metadata:
+  name: "tomcat-pod"
+  labels:
+    author: Bharath
+    type: appserver
+
+spec:
+  containers:
+    - name: tomcat
+      image: tomee
+
+---
+
