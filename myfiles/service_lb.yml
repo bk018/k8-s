@@ -1,13 +1,11 @@
 apiVersion: v1
-kind: service
+kind: Pod
 metadata:
-  name: tomcat-service
-spec:
-  type: LoadBalancer
-  ports:
-    - targetPort: 80
-      port: 80
-
-  selector:
-    author: Bharath
+  name: tomcat-pod
+  labels:
     type: appserver
+    author: Bharath
+spec:
+  containers:
+    - name: tomcat
+      image: tomee
