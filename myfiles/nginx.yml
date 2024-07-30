@@ -3,9 +3,12 @@ kind: Pod
 metadata:
   name: nginx-pod
   labels:
-    author: Bharath
+    author: intellqit
     type: reverse-proxy
 spec:
   containers:
     - name: appserver
       image: nginx
+
+---
+
