@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: tomcat-pod
+  name: tomcat-service
   labels:
     type: appserver
     author: Bharath
