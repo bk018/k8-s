@@ -1,14 +1,14 @@
 apiVersion: v1
-kind: Pod
+kind: pod
 metadata:
   name: nginx-pod
   labels:
-    author: intellqit
-    type: reverse-proxy
+    author: Bharath
+    type: services
 spec:
   containers:
-    - name: appserver
-      image: nginx
+    - image: nginx
+      name: appserver
 
 ---
 
