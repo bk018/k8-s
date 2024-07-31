@@ -1,10 +1,10 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: "tomcat-pod"
+  name: tomcat-pod
   labels:
     author: Bharath
-    type: appserver
+    type: tomserver
 
 spec:
   containers:
