@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deployment
+  Namespace: bharath-ns
+  labels:
+    author: intelliqit
+    type: proxyserver
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      type: proxyserver
+  template:
+    metadata:
+      name: nginx-pod
+      labels:
+        type: proxyserver
+  spec:
+    affinity:
+      nodeAffinity:
+        requiredDuringSchedulingIgnoredDuringExecution:
+          nodeSelectorTerms:
+            - matchExpressions:
+                - key: slave1
+                  operator: in
+                  values:
+                    - employe1
