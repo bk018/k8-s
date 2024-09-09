@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kafka-deployment
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: kafka-deployment
+  template:
+    metadata:
+      labels:
+        app: kafka-deployment
+    spec:
+      volumes:
+        - name: kafka-pv
+          persistentVolumeClaim:
+            claimName: kafka-pvc
+      containers:
+        - name: kafka
+          image: nexus3.onap.org:10001/onap/dmaap/kafka111:1.0.4
+          ports:
+            - containerPort: 9092
+          envFrom:
+            - configMapRef:
+                name: kafka-config
+          volumeMounts:
+            - name: kafka-pv
+              mountPath: /mnt/data
+          resources:
+            requests:
+              cpu: "100m"
+              memory: "128Mi"
+            limits:
+              cpu: "500m"
+              memory: "1Gi"
