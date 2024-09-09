@@ -21,9 +21,6 @@ spec:
           envFrom:
             - configMapRef:
                 name: kafka-config
-          volumeMounts:
-            - name: kafka-pv
-              mountPath: /mnt/data
 
 ---
 
