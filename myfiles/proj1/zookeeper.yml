@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: Zookeeper-dep
+  namespace: default
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: zookeeper
+  template:
+    metadata:
+      labels:
+        app: zookeeper
+    spec:
+      volumes:
+        - name: kafka-pv
+          persistentVolumeClaim:
+            claimName: kafka-pvc
+      containers:
+        - name: kafka
+          image: zookeeper
+          ports:
+            - containerPort: 2181
+          envFrom:
+            - configMapRef:
+                name: kafka-config
+          volumeMounts:
+            - name: kafka-pv
+              mountPath: /mnt/data
+          resources:
+            requests:
+              cpu: "100m"
+              memory: "128Mi"
+            limits:
+              cpu: "500m"
+              memory: "1Gi"
