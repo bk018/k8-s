@@ -19,9 +19,9 @@ spec:
             claimName: kafka-pvc
       containers:
         - name: kafka
-          image: nginx
+          image: nexus3.onap.org:10001/onap/dmaap/kafka111:1.0.4
           ports:
-            - containerPort: 8080
+            - containerPort: 9092
           envFrom:
             - configMapRef:
                 name: kafka-config
