@@ -11,7 +11,7 @@ spec:
   template:
     metadata:
       labels:
-        app: zookeeper
+        app: kafka-deployment
     spec:
       volumes:
         - name: kafka-pv
